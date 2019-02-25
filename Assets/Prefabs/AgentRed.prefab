@@ -75,5 +75,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4c5e090bc01284721baeefb9cd5d0043, type: 2}
+    - target: {fileID: 6927230036454799910, guid: 6bc11d624561b4e4ba8530a45994538b,
+        type: 3}
+      propertyPath: cloneableMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a0c194704f7748828500dcd288c052b, type: 2}
+    - target: {fileID: 6927230036454799910, guid: 6bc11d624561b4e4ba8530a45994538b,
+        type: 3}
+      propertyPath: jumpableMat
+      value: 
+      objectReference: {fileID: 2100000, guid: d7fef5affe00248fa8184c8a0939cdcc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc11d624561b4e4ba8530a45994538b, type: 3}

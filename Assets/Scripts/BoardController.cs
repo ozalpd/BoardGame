@@ -6,7 +6,6 @@ using UnityEngine;
 public class BoardController : MonoBehaviour
 {
     public GameObject tilePrefab;
-    public Material selectMaterial;
 
     public GameObject[] playPieces;
     public Quaternion[] PieceRotations { get; private set; }
@@ -33,24 +32,36 @@ public class BoardController : MonoBehaviour
         get { return _selTile; }
         set
         {
-            if (_selTile != null && tileMat != null)
-            {
-                _selTile.GetComponent<Renderer>().material = tileMat;
-            }
-            _selTile = value;
             if (_selTile != null)
             {
-                tileMat = _selTile.GetComponent<Renderer>().material;
-                _selTile.GetComponent<Renderer>().material = selectMaterial;
+                _selTile.GetComponent<Renderer>().material = tileMat;
+                foreach (var t in _selTile.MoveableTiles)
+                {
+                    t.GetComponent<Renderer>().material = tileMat;
+                }
             }
-            else
+            _selTile = value;
+            if (_selTile != null && _selTile.Piece != null)
             {
-                tileMat = null;
+                var p = _selTile.Piece;
+                _selTile.GetComponent<Renderer>().material = p.selectMaterial;
+                foreach (var t in _selTile.EmptyMoveableTiles)
+                {
+                    if (_selTile.IsNeighbour(t))
+                        t.GetComponent<Renderer>().material = p.cloneableMat;
+                    else
+                        t.GetComponent<Renderer>().material = p.jumpableMat;
+                }
             }
         }
     }
     private TileController _selTile;
     private Material tileMat;
+
+    public IEnumerable<TileController> Tiles
+    {
+        get { return tiles; }
+    }
 
     private void Awake()
     {
@@ -73,6 +84,8 @@ public class BoardController : MonoBehaviour
             {
                 var go = Instantiate(tilePrefab, new Vector3(posX + c, 0f, posZ + r), Quaternion.identity);
                 go.transform.SetParent(boardGO.transform);
+                if (tileMat == null)
+                    tileMat = go.GetComponent<Renderer>().material;
 
                 var tile = go.GetComponent<TileController>();
                 tile.Board = this;
@@ -98,6 +111,11 @@ public class BoardController : MonoBehaviour
                 tiles.Add(tile);
             }
         }
+
+        foreach (var t in tiles)
+        {
+            t.SetRelatedTiles();
+        }
     }
 
     private void Update()
@@ -118,7 +136,7 @@ public class BoardController : MonoBehaviour
 
     private void OnTileClicked(TileController tile)
     {
-        if (tile.PieceNr == turn)
+        if (tile.PieceNr == turn && tile.EmptyMoveableTiles.Any())
         {
             SelectedTile = tile;
         }
