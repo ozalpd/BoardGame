@@ -110,30 +110,37 @@ public class BoardController : MonoBehaviour
                 var tile = hitInfo.collider.GetComponent<TileController>();
                 if (tile != null)
                 {
-                    if (tile.PieceNr == turn)
-                    {
-                        SelectedTile = tile;
-                    }
-                    else if (SelectedTile != null && !tile.HasPiece
-                         && (tile.CanJump(SelectedTile) || tile.IsNeighbour(SelectedTile)))
-                    {
-                        tile.PieceNr = SelectedTile.PieceNr;
-                        if (tile.IsNeighbour(SelectedTile))
-                        {
-                            foreach (var t in tiles)
-                            {
-                                if (t.PieceNr != tile.PieceNr && t.IsNeighbour(tile))
-                                    t.PieceNr = SelectedTile.PieceNr;
-                            }
-                        }
-                        SelectedTile = null;
-                        turn = (turn + 1) % players;
-                        DisplayScores();
-                    }
+                    OnTileClicked(tile);
                 }
             }
         }
     }
+
+    private void OnTileClicked(TileController tile)
+    {
+        if (tile.PieceNr == turn)
+        {
+            SelectedTile = tile;
+        }
+        else if (SelectedTile != null && !tile.HasPiece
+             && (tile.CanJump(SelectedTile) || tile.IsNeighbour(SelectedTile)))
+        {
+            tile.PieceNr = SelectedTile.PieceNr;
+            foreach (var t in tiles)
+            {
+                if (t.PieceNr != tile.PieceNr && t.HasPiece && t.IsNeighbour(tile))
+                    t.PieceNr = SelectedTile.PieceNr;
+            }
+            if (!tile.IsNeighbour(SelectedTile))
+            {
+                SelectedTile.ClearPiece();
+            }
+            SelectedTile = null;
+            turn = (turn + 1) % players;
+            DisplayScores();
+        }
+    }
+
     RaycastHit hitInfo = new RaycastHit();
     Ray ray = new Ray();
 

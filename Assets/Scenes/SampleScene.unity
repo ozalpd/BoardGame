@@ -301,8 +301,8 @@ MonoBehaviour:
   - {fileID: 1440151203447275102, guid: 304ef12ac100c4ec3882b74baa6db47d, type: 3}
   - {fileID: 1928132757637520, guid: 6bc11d624561b4e4ba8530a45994538b, type: 3}
   - {fileID: 8806139819951260419, guid: 3d7d5acd74720458e84c380686561e9e, type: 3}
-  cols: 12
-  rows: 12
+  cols: 8
+  rows: 8
   players: 2
 --- !u!4 &914133299
 Transform:

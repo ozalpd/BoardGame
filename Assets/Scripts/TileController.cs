@@ -47,6 +47,15 @@ public class TileController : MonoBehaviour
         return colDiff < 3 && rowDiff < 3;
     }
 
+    public void ClearPiece()
+    {
+        if (playerGo != null)
+            Destroy(playerGo);
+
+        playerGo = null;
+        _pieceNr = null;
+    }
+
     public bool IsNeighbour(TileController tile)
     {
         int colDiff = Mathf.Abs(ColNr - tile.ColNr);

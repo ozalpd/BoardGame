@@ -195,7 +195,6 @@ GameObject:
   - component: {fileID: 4742746850891696}
   - component: {fileID: 33026964569434342}
   - component: {fileID: 23635767247431588}
-  - component: {fileID: 651525344276631964}
   m_Layer: 0
   m_Name: AgentGrey
   m_TagString: Player
@@ -265,18 +264,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &651525344276631964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928132757637520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf83970b68fd74090adf2c51d903648b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1940588901858152
 GameObject:
   m_ObjectHideFlags: 0

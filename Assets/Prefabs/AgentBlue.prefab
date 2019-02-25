@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1928132757637520, guid: 6bc11d624561b4e4ba8530a45994538b, type: 3}
       propertyPath: m_Name
-      value: AgentBlue V
+      value: AgentBlue
       objectReference: {fileID: 0}
     - target: {fileID: 4742746850891696, guid: 6bc11d624561b4e4ba8530a45994538b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59,7 +59,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 84b8d9cc684b246d29e1b5ce0f921f1b, type: 2}
+      objectReference: {fileID: 2100000, guid: 0a255f1a8c0f249f4a0b4297c16647e6, type: 2}
     - target: {fileID: 23264136385331544, guid: 6bc11d624561b4e4ba8530a45994538b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
