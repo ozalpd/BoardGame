@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -392,9 +392,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 9058415774556196227, guid: 54c00518784914e30bf4d62f829d9170,
     type: 3}
-  selectMaterial: {fileID: 2100000, guid: 96997305ca09c4ec0b0507f0c64fcb1e, type: 2}
-  cloneableMat: {fileID: 2100000, guid: 68e4f2900f5e5204ba72ee1196970bf2, type: 2}
-  jumpableMat: {fileID: 2100000, guid: d941eb8fea776a34489727dc67186559, type: 2}
   playPieces:
   - {fileID: 7828916887166414345, guid: e6bd7c75549974c60ad783c52990ed61, type: 3}
   - {fileID: 606322771138318654, guid: c73b0d3deb2734c2cbfc306da613b2ee, type: 3}

@@ -44,13 +44,13 @@ public class BoardController : MonoBehaviour
             if (_selTile != null && _selTile.Piece != null)
             {
                 var p = _selTile.Piece;
-                _selTile.GetComponent<Renderer>().material = p.selectMaterial;
+                _selTile.GetComponent<Renderer>().material = p.SelectMaterial;
                 foreach (var t in _selTile.EmptyMoveableTiles)
                 {
                     if (_selTile.IsNeighbour(t))
-                        t.GetComponent<Renderer>().material = p.cloneableMat;
+                        t.GetComponent<Renderer>().material = p.CloneableMaterial;
                     else
-                        t.GetComponent<Renderer>().material = p.jumpableMat;
+                        t.GetComponent<Renderer>().material = p.JumpableMaterial;
                 }
             }
         }
